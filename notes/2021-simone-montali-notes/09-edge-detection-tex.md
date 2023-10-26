@@ -35,9 +35,7 @@ To approximate the gradient and simplify the thing, we can either compute the **
 
 We can even approximathe the magnitude!
 
-$$
-|\nabla I|=\sqrt{\left(I_{x}\right)^{2}+\left(I_{y}\right)^{2}} \quad|\nabla I|_{+}=\left|I_{x}\right|+\left|I_{y}\right| \quad|\nabla I|_{\max }=\max \left(\left|I_{x}\right|,\left|I_{y}\right|\right)
-$$
+$$|\nabla I|=\sqrt{\left(I_{x}\right)^{2}+\left(I_{y}\right)^{2}} \quad|\nabla I|_{+}=\left|I_{x}\right|+\left|I_{y}\right| \quad|\nabla I|_{\max }=\max \left(\left|I_{x}\right|,\left|I_{y}\right|\right)$$
 
 The third approximation is faster and more invariant wrt edge direction. In fact, diagonal edges may confuse the first two methods:
 
@@ -49,14 +47,20 @@ So, we can smooth the signal before computing the derivatives. Unfortunately, ed
 
 How do we compute these _smoothed derivatives_? We could smooth and derivate in a single step: this is achieved by computing differences of averages (rather than averaging the image and then compute differences).
 
-It all boils down to a correlation with the kernel $\frac{1}{3}\left[\begin{array}{ll}
+It all boils down to a correlation with the kernel
+
+$$
+\frac{1}{3}\left[\begin{array}{ll}
 -1 & 1 \\
 -1 & 1 \\
 -1 & 1
 \end{array}\right]$ for the horizontal, while $\frac{1}{3}\left[\begin{array}{ccc}
 -1 & -1 & -1 \\
 1 & 1 & 1
-\end{array}\right]$ for the vertical.
+\end{array}\right]
+$$
+
+for the vertical.
 
 We may use central differences instead of forward ones, using the same approach. We compute an horizontal smoothed derivative of a difference between two vertical differences, using the kernels:
 
@@ -210,7 +214,9 @@ For the 1D case, we can p;rove thaqt the optimal edge detection is a first order
 
 To translate this into 2D, we should look for local extrema of the directional derivative (Gaussian).
 
-Leveraging on the separability of the Gaussian, we can fasten things up, taking the derivative of the horizontal/vertical Gaussians separately. In practive, the derivative along x is $\tilde{I}_{x}(x, y)=I(x, y) *\left(G^{\prime}(x) G(y)\right)=\left(I(x, y) * G^{\prime}(x)\right) * G(y)$ and along y $\tilde{I}_{y}(x, y)=I(x, y) *\left(G^{\prime}(y) G(x)\right)=\left(I(x, y) * G^{\prime}(y)\right) * G(x)$.
+Leveraging on the separability of the Gaussian, we can fasten things up, taking the derivative of the horizontal/vertical Gaussians separately. In practive, the derivative along x is
+
+$$\tilde{I}_{x}(x, y)=I(x, y) *\left(G^{\prime}(x) G(y)\right)=\left(I(x, y) * G^{\prime}(x)\right) * G(y)$ and along y $\tilde{I}_{y}(x, y)=I(x, y) *\left(G^{\prime}(y) G(x)\right)=\left(I(x, y) * G^{\prime}(y)\right) * G(x)$$
 
 NMS is often followed by thresholding of the gradient magnitude to help distinguish between real edges and unwanted ones. However, we could incur in _edge streaking_, i.e. that we don't get the full edge.
 
