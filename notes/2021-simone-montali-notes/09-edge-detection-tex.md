@@ -120,11 +120,15 @@ So, how do we perform this NMS correctly? There's two approaches. To perform NMS
 
 The other one is, assume A and B are not on the discrete grid of pixels. Because A,B and P are not in the pixel grid, we can't compute the gradient. So how can we assess that the magnitude is higher than a threshold, if we haven't computed it? A way to proceed might be estimating the gradient wrt to the gradient of the closest pixel in the grid. We'll estimate the gradient at $A$ by a linear interpolation by the gradient of the two pixels near $A$, and the same for $B$. Once we estimated that, we could perform our calculations.
 
-The overall flow chart of an edge detector based on smooth derivatives and NMS is the following:![NMS edge detection flowchart](./res/nms-edge-detection.png)
+The overall flow chart of an edge detector based on smooth derivatives and NMS is the following:
+
+![NMS edge detection flowchart](./res/nms-edge-detection.png)
 
 Once NMS has been performed, we end up with an edge map. Still, it's standard practice to apply another tresholding, pruning the output on the magnitude on the gradient, which however is only applied to the pixels that _survived_ NMS.
 
-To localize edges, we could also search for _0-crossings_ of the second derivative, stating a maximum of the derivative. ![Second derivative edge detection](./res/second-derivative.png)
+To localize edges, we could also search for _0-crossings_ of the second derivative, stating a maximum of the derivative.
+
+![Second derivative edge detection](./res/second-derivative.png)
 
 Tranposing this technique to 2 dimensional spaces, we should look for zero-crossing of the second derivative _along the gradient's direction_.
 
