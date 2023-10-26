@@ -1,6 +1,8 @@
 _Edge detection algorithm, and most cited paper on Image Processing and Edge Detection. Defines **three criteria** that a good edge detector should have._<br>
 <br>
+
 # Criteria<br>
+
 <br>
 - **GOOD DETECTION** -> must correctly extract edges also in noisy images<br>
 - **GOOD LOCALIZATION** -> the distance between true and found edge should be minimal<br>
@@ -29,6 +31,7 @@ In the example below, A and B are sure-edges as they are above ‘High’ thresh
 <br>
 <br>
 ## Additional material <br>
-![Computerphile video on Canny edge detector](https://www.youtube.com/watch?v=sRFM5IEqR2w)<br>
+Here is a link to [**Computerphile video on Canny edge
+detector**](https://www.youtube.com/watch?v=sRFM5IEqR2w)<br>
 - Canny vs Sobel comparison:<br>
 ![](../../img/pasted-image-20230714152658.png)
