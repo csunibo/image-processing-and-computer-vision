@@ -10,7 +10,7 @@ An edge detection algorithm will start with the picture, and will output an _edg
 
 We'll start with a 1D model. A 1D step edge is just a sharp change of a 1D signal:
 
-![1D step edge](./res/stepedge-1d.png)
+NONONO1D step edge](./res/stepedge-1d.png)
 
 Now, if we compute its derivative, we get that it shows where the signal changes! We can therefore transform the signal into its derivative, and classify as edges all pixels in which the derivative is at a high level: we know that in the edge it will be high. We can just set a threshold and classify the derivative!
 
@@ -31,7 +31,7 @@ $$
 
 To approximate the gradient and simplify the thing, we can either compute the **backward** or **forward** **differences**. We could also compute central differences.
 
-![Gradient approximation using differences](./res/gradient-approximation.png)
+NONONOGradient approximation using differences](./res/gradient-approximation.png)
 
 We can even approximathe the magnitude!
 
@@ -39,7 +39,7 @@ $$|\nabla I|=\sqrt{\left(I_{x}\right)^{2}+\left(I_{y}\right)^{2}} \quad|\nabla I
 
 The third approximation is faster and more invariant wrt edge direction. In fact, diagonal edges may confuse the first two methods:
 
-![Norm approximations compared](./res/norm-approx-compared.png)
+NONONONorm approximations compared](./res/norm-approx-compared.png)
 
 Now, we have to **deal with noise**: edges may not be _sharp_. Taking derivatives of noisey signals is _an ill-posed problem_.
 
@@ -118,7 +118,7 @@ The process of looking for the maxima of the absolute value of the derivative al
 
 At the end, _if I have a pixel_, the gradient points in a direction, if this is an edge it must have a high derivative along that direction:
 
-![NMS direction](./res/nms-direction.png)
+NONONONMS direction](./res/nms-direction.png)
 
 So, how do we perform this NMS correctly? There's two approaches. To perform NMS at a pixel P, the magnitude of the gradient has to be estimated at points that don't bleong to the pixel grid.
 
@@ -126,13 +126,13 @@ The other one is, assume A and B are not on the discrete grid of pixels. Because
 
 The overall flow chart of an edge detector based on smooth derivatives and NMS is the following:
 
-![NMS edge detection flowchart](./res/nms-edge-detection.png)
+NONONONMS edge detection flowchart](./res/nms-edge-detection.png)
 
 Once NMS has been performed, we end up with an edge map. Still, it's standard practice to apply another tresholding, pruning the output on the magnitude on the gradient, which however is only applied to the pixels that _survived_ NMS.
 
 To localize edges, we could also search for _0-crossings_ of the second derivative, stating a maximum of the derivative.
 
-![Second derivative edge detection](./res/second-derivative.png)
+NONONOSecond derivative edge detection](./res/second-derivative.png)
 
 Tranposing this technique to 2 dimensional spaces, we should look for zero-crossing of the second derivative _along the gradient's direction_.
 
@@ -224,6 +224,6 @@ Considering 3 thresholds, we pick up the strong ones and check their neighbourho
 
 So, the whole flowchart is: we compute smooth derivatives by Gaussian filtering, then, because we have the partial derivatives, we have the gradient and compute its magnitude and orientation, then go through NMS. Finally, we can do hysteresis thresholding.
 
-![Canny's edge detection](./res/canny-edge.png)
+NONONOCanny's edge detection](./res/canny-edge.png)
 
 Canny's edge detection is the most widely used nowadays.
