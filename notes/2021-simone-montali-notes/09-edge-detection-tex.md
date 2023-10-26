@@ -10,7 +10,7 @@ An edge detection algorithm will start with the picture, and will output an _edg
 
 We'll start with a 1D model. A 1D step edge is just a sharp change of a 1D signal:
 
-![1D step edge](./res/stepedge1d.png)
+![1D step edge](./res/stepedge-1d.png)
 
 Now, if we compute its derivative, we get that it shows where the signal changes! We can therefore transform the signal into its derivative, and classify as edges all pixels in which the derivative is at a high level: we know that in the edge it will be high. We can just set a threshold and classify the derivative!
 
