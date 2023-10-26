@@ -54,7 +54,11 @@ $$
 -1 & 1 \\
 -1 & 1 \\
 -1 & 1
-\end{array}\right]$ for the horizontal, while $\frac{1}{3}\left[\begin{array}{ccc}
+\end{array}\right]$$
+
+for the horizontal, while
+
+$$\frac{1}{3}\left[\begin{array}{ccc}
 -1 & -1 & -1 \\
 1 & 1 & 1
 \end{array}\right]
@@ -216,7 +220,11 @@ To translate this into 2D, we should look for local extrema of the directional d
 
 Leveraging on the separability of the Gaussian, we can fasten things up, taking the derivative of the horizontal/vertical Gaussians separately. In practive, the derivative along x is
 
-$$\tilde{I}_{x}(x, y)=I(x, y) *\left(G^{\prime}(x) G(y)\right)=\left(I(x, y) * G^{\prime}(x)\right) * G(y)$ and along y $\tilde{I}_{y}(x, y)=I(x, y) *\left(G^{\prime}(y) G(x)\right)=\left(I(x, y) * G^{\prime}(y)\right) * G(x)$$
+$$\tilde{I}_{x}(x, y)=I(x, y) *\left(G^{\prime}(x) G(y)\right)=\left(I(x, y) * G^{\prime}(x)\right) * G(y)$$
+
+and along y
+
+$$\tilde{I}_{y}(x, y)=I(x, y) *\left(G^{\prime}(y) G(x)\right)=\left(I(x, y) * G^{\prime}(y)\right) * G(x)$$
 
 NMS is often followed by thresholding of the gradient magnitude to help distinguish between real edges and unwanted ones. However, we could incur in _edge streaking_, i.e. that we don't get the full edge.
 
