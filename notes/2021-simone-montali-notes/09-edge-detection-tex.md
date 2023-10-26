@@ -24,8 +24,8 @@ Now, we can design our algorithm. We compute the magnitude of the gradient (i.e.
 
 $$
 \left\{\begin{array}{l}
-\vartheta \in\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]=\operatorname{atan}\left(\frac{I_{y}}{I_{x}}\right) \\
-\vartheta \in[0,2 \pi]=\operatorname{atan} 2\left(I_{x}, I_{y}\right)
+\vartheta \in\left[-\frac{\pi}{2}, \frac{\pi}{2}\right]=atan\left(\frac{I_{y}}{I_{x}}\right) \\
+\vartheta \in[0,2 \pi]=atan 2\left(I_{x}, I_{y}\right)
 \end{array}\right.
 $$
 
